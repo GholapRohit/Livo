@@ -86,6 +86,11 @@ app.use("/listings/:id/reviews", reviews);
 app.use("/", user);
 app.use("/docs", docs);
 
+// Landing page
+app.get("/", (req, res) => {
+  res.render("pages/landing"); // for using home.ejs in views folder
+});
+
 //privacy and terms docs
 app.get("/privacy", (req, res) => {
   res.render("pages/privacy");
