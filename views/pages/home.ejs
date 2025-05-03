@@ -1,0 +1,96 @@
+<% layout("layouts/boilerplate.ejs") %>
+
+<div class="filter-box">
+  <!-- navigation prev button -->
+  <div class="slideshow-controls">
+    <button id="prev" class="btn btn-secondary">&lt;</button>
+  </div>
+  <!-- Filter options -->
+  <div id="filters" class="filter-slideshow">
+    <div class="filter">
+      <i class="fa-solid fa-fire"></i>
+      <p>Trending</p>
+    </div>
+    <div class="filter">
+      <i class="fa-solid fa-bed"></i>
+      <p>Rooms</p>
+    </div>
+    <div class="filter">
+      <i class="fa-solid fa-mountain-city"></i>
+      <p>Iconic Cities</p>
+    </div>
+    <div class="filter">
+      <i class="fa-brands fa-fort-awesome"></i>
+      <p>Castles</p>
+    </div>
+    <div class="filter">
+      <i class="fa-solid fa-person-swimming"></i>
+      <p>Amazing pools</p>
+    </div>
+    <div class="filter">
+      <i class="fa-solid fa-mountain"></i>
+      <p>Mountains</p>
+    </div>
+    <div class="filter">
+      <i class="fa-solid fa-campground"></i>
+      <p>Camping</p>
+    </div>
+    <div class="filter">
+      <i class="fa-solid fa-tractor"></i>
+      <p>Farms</p>
+    </div>
+    <div class="filter">
+      <i class="fa-solid fa-umbrella-beach"></i>
+      <p>Beach</p>
+    </div>
+    <div class="filter">
+      <i class="fa-solid fa-snowflake"></i>
+      <p>Arctic</p>
+    </div>
+    <div class="filter">
+      <i class="fa-solid fa-baseball-bat-ball"></i>
+      <p>Play</p>
+    </div>
+  </div>
+  <!-- navigation next buttons -->
+  <div class="slideshow-controls">
+    <button id="next" class="btn btn-secondary">&gt;</button>
+  </div>
+</div>
+
+<div class="tax-toggle">
+  <div class="form-check-reverse form-switch">
+    <input
+      class="form-check-input"
+      type="checkbox"
+      role="switch"
+      id="switchCheckDefault"
+    />
+    <label class="form-check-label" for="switchCheckDefault"
+      >Display total after taxes</label
+    >
+  </div>
+</div>
+
+<div class="card-box">
+  <% for(let list of allListings) {%>
+  <div class="card">
+    <img
+      src="<%= list.image.url %>"
+      class="card-img-top"
+      alt="<%= list.title %>"
+    />
+    <div class="card-body">
+      <h5 class="card-title"><%= list.title %></h5>
+      <p class="card-text"><%= list.location %>, <%= list.country %></p>
+      <p class="card-text tax-info">
+        &#8377;<%= list.price.toLocaleString("en-IN") %>/night
+      </p>
+      <a href="/listings/<%= list._id %>" class="btn btn-danger">See More</a>
+    </div>
+  </div>
+  <% } %>
+</div>
+
+<script src="/js/slideshow.js"></script>
+<script src="/js/tax.js"></script>

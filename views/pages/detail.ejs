@@ -1,0 +1,131 @@
+<% layout("layouts/boilerplate.ejs") %>
+<div class="detail-box">
+  <div class="card">
+    <img
+      src="<%= data.image.url %>"
+      class="card-img-top"
+      alt="<%= data.title %>"
+    />
+    <div class="card-body">
+      <div class="review-author mb-2">
+        <p class="card-text">Owned by <i><%= data.owner.username %></i></p>
+      </div>
+      <h5 class="card-title"><%= data.title %></h5>
+      <p class="card-text"><%= data.description %></p>
+      <p class="card-text"><%= data.location %>, <%= data.country %></p>
+      <p class="card-text">
+        &#8377;<%= data.price.toLocaleString("en-IN") %>/night
+      </p>
+      <% if(currentUser && currentUser._id.equals(data.owner._id)){ %>
+      <div class="detail-btn-box">
+        <a href="/listings/<%= data._id %>/edit" class="btn btn-primary"
+          >Edit</a
+        >
+        <form action="/listings/<%= data._id %>?_method=DELETE" method="post">
+          <button class="btn btn-danger" type="submit">Delete</button>
+        </form>
+      </div>
+      <% } %>
+    </div>
+  </div>
+  <% if(currentUser || data.review.length>0){ %>
+  <div class="review-box mb-3">
+    <% if(currentUser){ %>
+    <h2 class="text-center">Add Review</h2>
+    <form
+      action="/listings/<%= data._id %>/reviews"
+      method="post"
+      class="needs-validation"
+      novalidate
+    >
+      <div class="mb-3">
+        <label for="customRange3" class="form-label">Rating:</label>
+        <fieldset class="starability-basic">
+          <input
+            type="radio"
+            id="no-rate"
+            class="input-no-rate"
+            name="review[rating]"
+            value="1"
+            checked
+            aria-label="No rating."
+          />
+          <input
+            type="radio"
+            id="first-rate1"
+            name="review[rating]"
+            value="1"
+          />
+          <label for="first-rate1" title="Terrible">1 star</label>
+          <input
+            type="radio"
+            id="first-rate2"
+            name="review[rating]"
+            value="2"
+          />
+          <label for="first-rate2" title="Not good">2 stars</label>
+          <input
+            type="radio"
+            id="first-rate3"
+            name="review[rating]"
+            value="3"
+          />
+          <label for="first-rate3" title="Average">3 stars</label>
+          <input
+            type="radio"
+            id="first-rate4"
+            name="review[rating]"
+            value="4"
+          />
+          <label for="first-rate4" title="Very good">4 stars</label>
+          <input
+            type="radio"
+            id="first-rate5"
+            name="review[rating]"
+            value="5"
+          />
+          <label for="first-rate5" title="Amazing">5 stars</label>
+        </fieldset>
+      </div>
+      <div class="mb-3">
+        <label for="comment" class="form-label">Comment:</label>
+        <textarea
+          name="review[comment]"
+          id="comment"
+          class="form-control"
+          required
+        ></textarea>
+        <div class="invalid-feedback">Please provide a valid comment.</div>
+      </div>
+      <button class="btn btn-primary">Submit</button>
+    </form>
+    <hr />
+    <% } %> <% if (data.review.length>0){ %>
+    <div class="rating-box">
+      <% for( rev of data.review){ %>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">@<%= rev.author.username%></h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">
+            <%= new Date(rev.createdAt).toLocaleString() %>
+          </h6>
+          <p class="card-text">
+            <i class="fa-solid fa-star"></i> <%= rev.rating %><br />
+            <%= rev.comment %>
+          </p>
+          <% if(currentUser && currentUser._id.equals(rev.author._id) ){ %>
+          <form
+            action="/listings/<%= data._id %>/reviews/<%= rev._id %>?_method=DELETE"
+            method="post"
+          >
+            <button class="btn btn-sm btn-danger" type="submit">Delete</button>
+          </form>
+          <% } %>
+        </div>
+      </div>
+      <% } %>
+    </div>
+    <% } %>
+  </div>
+  <% } %>
+</div>

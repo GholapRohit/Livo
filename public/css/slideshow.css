@@ -1,0 +1,63 @@
+/* Filter box */
+.filter-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Slideshow container */
+.filter-slideshow {
+  display: flex;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  width: 100%;
+  padding: 5px;
+  gap: 10px;
+}
+
+/* Individual filter items */
+.filter {
+  flex: 0 0 auto;
+  text-align: center;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-radius: 50%;
+  min-width: 120px;
+}
+.filter:hover {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+/* Slideshow controls */
+.slideshow-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.slideshow-controls button {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.slideshow-controls button:hover {
+  background-color: #4d5357;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .filter {
+    min-width: 100px;
+  }
+}
+
+@media (max-width: 576px) {
+  .filter {
+    min-width: 80px;
+  }
+}
