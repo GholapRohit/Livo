@@ -1,10 +1,10 @@
-const express = require("express");
 const mongoose = require("mongoose");
 let { data } = require("./data");
 const listing = require("../models/listing");
 
+const dbUrl = process.env.ATLASDB_URL;
 async function connMongo() {
-  await mongoose.connect("mongodb://localhost:27017/airbnb");
+  await mongoose.connect(dbUrl);
 }
 connMongo()
   .then(() => {
