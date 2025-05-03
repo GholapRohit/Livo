@@ -1,6 +1,4 @@
-if (process.env.NODE_ENV !== "production") {
-  require("dotenv").config(); // for using environment variables in development mode
-}
+require("dotenv").config({ path: "../.env" }); // accessing environment variables from .env file
 const mongoose = require("mongoose");
 let { data } = require("./data");
 const listing = require("../models/listing");
