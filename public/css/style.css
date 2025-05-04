@@ -9,9 +9,8 @@ body {
 .container {
   flex: 1;
   margin-top: 60px;
-  margin-bottom: 20px;
   padding-top: 20px;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
 }
 
 /* Navbar */
