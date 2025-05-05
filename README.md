@@ -159,7 +159,6 @@ The application uses server-side rendering with EJS templates and provides a res
 1. Clone the repository:
    ```bash
    git clone <repository-url>
-   cd Airbnb-Clone
    ```
 2. Install dependencies
    ```bash
