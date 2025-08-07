@@ -1,8 +1,8 @@
-# **Airbnb Clone**
+# **Livo - Your Stay, Your Way**
 
 ## **Brief Overview**
 
-The Airbnb Clone is a web application that replicates the core functionalities of Airbnb. It allows users to:
+This is a web application that replicates the core functionalities of Airbnb. It allows users to:
 
 - Browse and explore property listings.
 - Create, update, and delete property listings (for authenticated users).
