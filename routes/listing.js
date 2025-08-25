@@ -30,7 +30,7 @@ router
 // Add-new-listing form (should be above the /listings/:id route because it takes new as a id parameter)
 router.get("/new", isLoggedIn, getNewForm);
 
-router.get("/:category", getCategoryListing);
+router.get("/category/:category", getCategoryListing);
 
 router
   .route("/:id")

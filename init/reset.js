@@ -20,7 +20,7 @@ const resetData = async () => {
   data = data.map((item) => {
     return {
       ...item,
-      owner: "68ac2b29f262147ae2fb1fd1",
+      owner: "68ac47dfd0ca9ce9aa920c28",
     };
   });
   await listing.insertMany(data);

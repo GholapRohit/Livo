@@ -10,10 +10,6 @@ module.exports.getListing = async (req, res) => {
   }
 };
 
-module.exports.showCategoryListing = async (req, res) => {
-  res.render("/");
-};
-
 module.exports.getCategoryListing = async (req, res) => {
   try {
     const cat = req.params.category;
@@ -87,7 +83,6 @@ module.exports.getParticularListing = async (req, res) => {
     req.flash("error", "Listing not found!");
     return res.redirect("/listings");
   }
-
   res.render("pages/detail", { data });
 };
 
