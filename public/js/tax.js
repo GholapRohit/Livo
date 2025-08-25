@@ -1,11 +1,3 @@
-const filters = document.querySelectorAll(".filter");
-filters.forEach((filter) => {
-  filter.addEventListener("click", () => {
-    const selectedFilter = filter.querySelector("p").innerText;
-    alert(`You selected: ${selectedFilter}`);
-  });
-});
-
 const taxToggle = document.getElementById("switchCheckDefault");
 taxInfo = document.querySelectorAll(".tax-info");
 taxToggle.addEventListener("change", () => {

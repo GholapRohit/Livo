@@ -9,6 +9,7 @@ const {
   updateListing,
   getParticularListing,
   deleteListing,
+  getCategoryListing,
 } = require("../controllers/listing.js");
 const multer = require("multer");
 const { storage } = require("../cloudConfig.js"); // Import the cloudinary storage configuration
@@ -28,6 +29,8 @@ router
 
 // Add-new-listing form (should be above the /listings/:id route because it takes new as a id parameter)
 router.get("/new", isLoggedIn, getNewForm);
+
+router.get("/:category", getCategoryListing);
 
 router
   .route("/:id")

@@ -20,7 +20,7 @@ const resetData = async () => {
   data = data.map((item) => {
     return {
       ...item,
-      owner: "6814e30f132c8c7a489645db", // Replace with the actual user ID
+      owner: "68ac2b29f262147ae2fb1fd1",
     };
   });
   await listing.insertMany(data);

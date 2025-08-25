@@ -36,6 +36,19 @@
     </div>
 
     <div class="mb-3">
+      <label class="form-label" for="category">Category:</label>
+      <input
+        class="form-control"
+        type="text"
+        name="listing[category]"
+        id="category"
+        value="<%= data.category %>"
+        required
+      />
+      <div class="invalid-feedback">Please provide a valid category.</div>
+    </div>
+
+    <div class="mb-3">
       <p>Original Image:</p>
       <img src="<%=  originalImageUrl %>" alt="listing image" />
     </div>

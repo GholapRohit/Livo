@@ -10,6 +10,21 @@ module.exports.getListing = async (req, res) => {
   }
 };
 
+module.exports.showCategoryListing = async (req, res) => {
+  res.render("/");
+};
+
+module.exports.getCategoryListing = async (req, res) => {
+  try {
+    const cat = req.params.category;
+    const categoryListings = await Listing.find({ category: cat });
+    res.render("pages/category", { categoryListings });
+  } catch (err) {
+    req.flash("error", "Error fetching listings!");
+    next(err);
+  }
+};
+
 module.exports.getNewForm = (req, res) => {
   res.render("pages/new");
 };
