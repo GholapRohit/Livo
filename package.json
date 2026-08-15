@@ -1,13 +1,14 @@
 {
   "engine": {
-    "node": "22.14.0"
+    "node": "24.19.0"
   },
   "name": "airbnb_clone",
   "version": "1.0.0",
   "description": "backened and frontened project of airbnb",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon app.js"
   },
   "author": "Rohit Gholap",
   "license": "ISC",
@@ -29,5 +30,8 @@
     "passport": "^0.7.0",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^8.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
   }
 }
